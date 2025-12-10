@@ -1,0 +1,82 @@
+POST http://localhost:3000/api/services
+Content-Type: application/json
+
+{
+    "name": "Decoração",
+    "description": "Escolha a decoração para sua festa, e nós a montamos.",
+    "price": 1400,
+    "image": "https://images.unsplash.com/photo-1478146059778-26028b07395a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=892&q=80"
+  }
+
+###
+
+GET http://localhost:3000/api/services
+
+###
+GET http://localhost:3000/api/services/692f7f435f13992bd5f11ee4
+
+###
+DELETE http://localhost:3000/api/services/692f7f435f13992bd5f11ee3
+
+###
+PUT http://localhost:3000/api/services/692f9dd3ad14f0a4e0ecb002
+Content-Type: application/json
+
+{
+    "name": "Teste atualizado",
+    "description": "Alguma descrição",
+    "price": 3500,
+    "image": "https://www.google.com/imgres?q=festa&imgurl=https%3A%2F%2Falphaconvites.com.br%2Fwp-content%2Fuploads%2F2023%2F01%2Ffesta-antes-formatura-scaled-1.jpg&imgrefurl=https%3A%2F%2Falphaconvites.com.br%2Ffestas-antes-da-formatura%2F&docid=c_egm3vO3ph3OM&tbnid=1HeNlkAwdZZtRM&vet=12ahUKEwiunvvuj6CRAxWKrZUCHRwMDfoQM3oECBIQAA..i&w=2560&h=1709&hcb=2&ved=2ahUKEwiunvvuj6CRAxWKrZUCHRwMDfoQM3oECBIQAA"
+} 
+
+###
+POST http://localhost:3000/api/parties
+Content-Type: application/json
+
+{
+    "title": "Meu evento 2",
+    "author": "Gustavo Oliveira",
+    "description": "Meu primeiro evento de teste",
+    "budget": 2000,
+    "image": "https://www.google.com/imgres?q=festa&imgurl=https%3A%2F%2Falphaconvites.com.br%2Fwp-content%2Fuploads%2F2023%2F01%2Ffesta-antes-formatura-scaled-1.jpg&imgrefurl=https%3A%2F%2Falphaconvites.com.br%2Ffestas-antes-da-formatura%2F&docid=c_egm3vO3ph3OM&tbnid=1HeNlkAwdZZtRM&vet=12ahUKEwiunvvuj6CRAxWKrZUCHRwMDfoQM3oECBIQAA..i&w=2560&h=1709&hcb=2&ved=2ahUKEwiunvvuj6CRAxWKrZUCHRwMDfoQM3oECBIQAA",
+    "services": [
+        {
+            "name": "Algum serviço 1 ",
+            "description": "Alguma descrição",
+            "price": 3000,
+            "image": "https://www.google.com/imgres?q=festa&imgurl=https%3A%2F%2Falphaconvites.com.br%2Fwp-content%2Fuploads%2F2023%2F01%2Ffesta-antes-formatura-scaled-1.jpg&imgrefurl=https%3A%2F%2Falphaconvites.com.br%2Ffestas-antes-da-formatura%2F&docid=c_egm3vO3ph3OM&tbnid=1HeNlkAwdZZtRM&vet=12ahUKEwiunvvuj6CRAxWKrZUCHRwMDfoQM3oECBIQAA..i&w=2560&h=1709&hcb=2&ved=2ahUKEwiunvvuj6CRAxWKrZUCHRwMDfoQM3oECBIQAA"
+        },
+        {
+            "name": "Algum serviço 2",
+            "description": "Alguma descrição",
+            "price": 1600,
+            "image": "https://www.google.com/imgres?q=festa&imgurl=https%3A%2F%2Falphaconvites.com.br%2Fwp-content%2Fuploads%2F2023%2F01%2Ffesta-antes-formatura-scaled-1.jpg&imgrefurl=https%3A%2F%2Falphaconvites.com.br%2Ffestas-antes-da-formatura%2F&docid=c_egm3vO3ph3OM&tbnid=1HeNlkAwdZZtRM&vet=12ahUKEwiunvvuj6CRAxWKrZUCHRwMDfoQM3oECBIQAA..i&w=2560&h=1709&hcb=2&ved=2ahUKEwiunvvuj6CRAxWKrZUCHRwMDfoQM3oECBIQAA"
+        }
+    ]
+}
+
+###
+GET http://localhost:3000/api/parties
+
+###
+GET http://localhost:3000/api/parties/692fab8d90a9563c0441f7eb
+
+###
+DELETE http://localhost:3000/api/parties/692fab8d90a9563c0441f7eC
+
+###
+
+PUT http://localhost:3000/api/parties/692faabe90a9563c0441f7e9
+Content-Type: application/json
+
+{
+  "title": "Meu evento atualizado teste ",
+  "author": "Gustavo Oliveira",
+  "description": "Meu primeiro evento de teste",
+  "budget": 9000,
+  "image": "https://images.unsplash.com/photo-1566737236500-c8ac43014a67?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  "services": [
+    
+  ]
+}
+
