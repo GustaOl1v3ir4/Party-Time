@@ -1,0 +1,118 @@
+# 🎉 Party Time — Gestão de Festas e Serviços
+
+O **Party Time** é uma aplicação completa (Frontend + Backend) para criação, edição e gerenciamento de festas.  
+Os usuários podem cadastrar uma festa, adicionar serviços (DJ, segurança, open bar, brinquedos etc), visualizar detalhes, editar e excluir.
+
+Este projeto foi desenvolvido seguindo o modelo **MERN (MongoDB, Express, React, Node.js)**, com foco em boas práticas, organização e experiência do usuário.
+
+---
+
+## 🚀 Funcionalidades
+
+### 🎨 **Frontend**
+- Criar uma festa preenchendo:
+  - Nome
+  - Anfitrião
+  - Descrição
+  - Orçamento
+  - Imagem
+- Selecionar serviços disponíveis para contratar
+- Validação automática de orçamento
+- Listar todas as festas
+- Ver detalhes de uma festa
+- Editar festa existente
+- Excluir festa
+- Feedback visual com **React Toastify**
+
+### 🛠 **Backend**
+- API RESTful usando:
+  - Node.js
+  - Express
+  - MongoDB + Mongoose
+- Rotas:
+  - `POST /parties` – Criar festa
+  - `GET /parties` – Listar festas
+  - `GET /parties/:id` – Obter festa específica
+  - `PATCH /parties/:id` – Atualizar festa
+  - `DELETE /parties/:id` – Excluir festa
+- Middleware de validação de orçamento
+- Relacionamento entre festa e serviços
+- Tratamento de erros padronizado
+
+---
+
+## 🖼️ Demonstração
+
+> *(Adicione prints do projeto aqui futuramente)*
+
+---
+
+## 🧱 Tecnologias utilizadas
+
+### **Frontend**
+- React.js
+- React Router
+- Axios
+- React Toastify
+- CSS Responsivo
+
+### **Backend**
+- Node.js
+- Express.js
+- Mongoose
+- MongoDB
+
+### **Ambiente**
+- Vite
+- Nodemon
+
+---
+
+## 📦 Estrutura do projeto
+Party Time/
+│
+├── backend/
+│ ├── controllers/
+│ ├── models/
+│ ├── routes/
+│ ├── db/
+│ ├── app.js
+│ ├── package.json
+│
+├── frontend/
+│ ├── public/
+│ ├── src/
+│ │ ├── components/
+│ │ ├── pages/
+│ │ ├── hooks/
+│ │ ├── App.jsx
+│ │ ├── main.jsx
+│ ├── package.json
+│
+├── .gitignore
+└── README.md
+
+🔒 Validação de Orçamento
+
+O backend impede que uma festa seja criada/atualizada se a soma dos serviços ultrapassar o orçamento definido pelo usuário.
+
+Frontend também valida antes de enviar a requisição.
+
+🐞 Possíveis melhorias futuras
+
+Autenticação (login/cadastro)
+
+Upload real de imagens com multer + cloud storage
+
+Dashboard administrativo
+
+Filtros e busca por festas
+
+Temas dark/light
+
+💬 Autor
+
+Gustavo Carvalho
+Desenvolvedor Front-end
+📧 gustavoco2010@hotmail.com
+🔗 Portfólio: https://gustavooliveira.vercel.app/
