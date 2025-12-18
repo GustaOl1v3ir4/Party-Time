@@ -4,18 +4,17 @@ const app = express()
 require("dotenv").config();
 
 
-app.use(cors())
-
-app.use(express.json())
+app.use(cors({
+  origin: "https://party-time-1.onrender.com"
+}));
+app.use(express.json());
 
 // DB Connection
 const conn = require("./db/conn");
-
 conn();
 
-//Routes
+// Routes
 const routes = require("./routes/router");
-
 app.use("/api", routes);
 
 app.listen(process.env.PORT, () => {
