@@ -1,4 +1,5 @@
 const router = require("express").Router()
+console.log("✅ router.js carregado");
 
 // Services router
 
@@ -11,5 +12,13 @@ router.use("/", servicesRouter)
 const partyRouter = require("./parties")
 
 router.use("/", partyRouter);
+
+
+// Auth router
+
+const authRouter = require("./auth")
+
+router.use("/", authRouter);
+
 
 module.exports = router;

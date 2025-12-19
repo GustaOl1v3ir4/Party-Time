@@ -1,4 +1,5 @@
 const PartyModel = require("../models/Party");
+const User = require("../models/User");
 
 const checkPartyBudget = (budget, services) => {
 
@@ -19,12 +20,13 @@ const partyController = {
         try {
             const party = {
                 title: req.body.title,
-                author: req.body.author,
+                author: req.user.name,
                 description: req.body.description,
                 budget: req.body.budget,
                 image: req.body.image,
-                services: req.body.services
-            }
+                services: req.body.services,
+                user: req.user._id
+            };
 
             //BUDGET < VALOR DO SERVICO != NOVO SERVICO
             if(party.services && !checkPartyBudget(party.budget, party.services)){
@@ -44,7 +46,7 @@ const partyController = {
     getAll: async(req, res) => {
         try {
 
-            const parties = await PartyModel.find();
+            const parties = await PartyModel.find({user: req.user._id});
 
             res.json(parties);
 
@@ -74,10 +76,17 @@ const partyController = {
             const id = req.params.id;
             const party = await PartyModel.findById(id);
 
+            if(party.user.toString() !== req.user._id.toString()){
+                res.status(401).json({msg: "Acesso negado"})
+            }
+
+
             if(!party){
                 res.status(404).json({msg: "Essa festa não existe"});
                 return;
             }
+
+            
 
             const deleteParty = await PartyModel.findByIdAndDelete(id);
 
@@ -108,6 +117,10 @@ const partyController = {
 
 
             const updateParty = await PartyModel.findByIdAndUpdate(id, party);
+
+            if(party.user.toString() !== req.user._id.toString()){
+                res.status(401).json({msg: "Acesso negado"})
+            }
 
             if(!updateParty){
                 res.status(404).json({msg: "Essa festa não existe"});

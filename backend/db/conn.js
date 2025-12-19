@@ -7,6 +7,8 @@ async function main() {
     } catch (error) {
         console.log("Erro ao conectar ao banco:", error);
     }
+    console.log("MONGO_URI:", process.env.MONGO_URI);
+
 }
 
 module.exports = main;

@@ -1,5 +1,5 @@
 const User = require("../models/User");
-const brcrypt = require("bcrypt");
+const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 
 const generateToken = (id) => {
@@ -10,7 +10,7 @@ const generateToken = (id) => {
     );
 };
 
-const auth = {
+const authController = {
 
     //Criar novo usuário
     async register(req, res){
@@ -33,8 +33,8 @@ const auth = {
 
 
 
-            const salt = await brcrypt.genSalt(12);
-            const passwordHash = await brcrypt.hash(password, salt);
+            const salt = await bcrypt.genSalt(12);
+            const passwordHash = await bcrypt.hash(password, salt);
 
 
 
@@ -43,6 +43,8 @@ const auth = {
                 email,
                 password: passwordHash
             });
+            await user.save();
+
 
 
             res.status(201).json({
@@ -84,7 +86,7 @@ const auth = {
             }
 
 
-            const checkPassword = await brcrypt.compare(password, user.password);
+            const checkPassword = await bcrypt.compare(password, user.password);
             if(!checkPassword){
                 return res.status(401).json({
                     message: "Senha inválida"
@@ -118,4 +120,4 @@ const auth = {
 
 
 
-module.exports = User;
+module.exports = authController;

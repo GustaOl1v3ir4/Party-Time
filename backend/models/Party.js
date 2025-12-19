@@ -28,6 +28,11 @@ const partySchema = new Schema ({
     services: {
         type: [serviceSchema], 
     },
+    user:{
+        type: Schema.Types.ObjectId,
+        ref: "User",
+        required: true
+    }
 
 },
     {timestamps: true}

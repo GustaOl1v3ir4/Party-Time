@@ -37,7 +37,7 @@ Content-Type: application/json
     "title": "Meu evento 2",
     "author": "Gustavo Oliveira",
     "description": "Meu primeiro evento de teste",
-    "budget": 2000,
+    "budget": 9000,
     "image": "https://www.google.com/imgres?q=festa&imgurl=https%3A%2F%2Falphaconvites.com.br%2Fwp-content%2Fuploads%2F2023%2F01%2Ffesta-antes-formatura-scaled-1.jpg&imgrefurl=https%3A%2F%2Falphaconvites.com.br%2Ffestas-antes-da-formatura%2F&docid=c_egm3vO3ph3OM&tbnid=1HeNlkAwdZZtRM&vet=12ahUKEwiunvvuj6CRAxWKrZUCHRwMDfoQM3oECBIQAA..i&w=2560&h=1709&hcb=2&ved=2ahUKEwiunvvuj6CRAxWKrZUCHRwMDfoQM3oECBIQAA",
     "services": [
         {
@@ -78,5 +78,16 @@ Content-Type: application/json
   "services": [
     
   ]
+}
+
+
+###
+POST http://localhost:3000/api/auth/register
+Content-Type: application/json
+
+{
+  "name": "Gustavo",
+  "email": "gustavo@email.com",
+  "password": "123456"
 }
 
