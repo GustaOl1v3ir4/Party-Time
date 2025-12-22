@@ -71,6 +71,17 @@ const partyController = {
         }
     },
 
+    getMyParties: async(req, res) => {
+        try {
+            const parties = await PartyModel.find({
+                user: req.user._id
+            });
+            res.status(200).json(parties);
+        } catch (error) {
+            console.log(error);
+        }
+    },
+
     delete: async(req, res) => {
         try {
             const id = req.params.id;
@@ -135,6 +146,7 @@ const partyController = {
             console.log(error);
         }
     }
+
 
 }
 module.exports = partyController;
