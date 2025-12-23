@@ -1,4 +1,4 @@
-import { createContext, useEffect, useState } from "react";
+import { createContext, useEffect, useState, useContext } from "react";
 import partyFetch from "../axios/config";
 
 
@@ -69,4 +69,8 @@ export const AuthProvider = ({ children }) => {
         </authContext.Provider>
     );
 
+};
+
+export const useAuth = () => {
+  return useContext(authContext);
 };

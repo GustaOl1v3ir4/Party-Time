@@ -7,9 +7,23 @@ const app = express()
 
 
 app.use(cors({
-  origin: "https://party-time-1.onrender.com"
+  origin: (origin, callback) => {
+    const allowedOrigins = [
+      "http://localhost:5173",
+      "https://party-time-1.onrender.com"
+    ];
+
+    if (!origin) return callback(null, true);
+
+    if (allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
+  credentials: true
 }));
-app.use(express.json());
+
 
 // DB Connection
 const conn = require("./db/conn");

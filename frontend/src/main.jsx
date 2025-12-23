@@ -17,6 +17,9 @@ import Party from './routes/Party.jsx';
 import EditParty from './routes/EditParty.jsx';
 import Login from './routes/Login.jsx';
 import Register from './routes/Register.jsx';
+import PrivateRoute from './routes/PrivateRoute.jsx';
+
+
 
 
 
@@ -26,10 +29,6 @@ const router = createBrowserRouter([
     element: <App />,
     children:[
       {
-        path: "/",
-        element: <Home />,
-      },
-      {
         path: "/login",
         element: <Login />,
       },
@@ -38,16 +37,36 @@ const router = createBrowserRouter([
         element: <Register />,
       },
       {
+        path: "/",
+        element: (
+        <PrivateRoute>
+          <Home />
+        </PrivateRoute>
+        ),   
+      },
+      {
         path: "/party/new",
-        element: <CreateParty />,
+        element: (
+          <PrivateRoute>
+            <CreateParty />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/party/:id",
-        element: <Party />,
+        element: (
+          <PrivateRoute>
+            <Party />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/party/edit/:id",
-        element: <EditParty />,
+        element: (
+          <PrivateRoute>
+            <EditParty />
+          </PrivateRoute>
+        ),
       },
     ],
   },
