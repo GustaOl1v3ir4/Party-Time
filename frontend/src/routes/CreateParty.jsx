@@ -24,7 +24,7 @@ const CreateParty = () => {
   useEffect(() => {
     const loadServices = async() => {
       const res = await partyFetch.get("/services");
-
+      console.log("SERVIÇOS:", res.data);
 
       setServices(res.data);
     }
@@ -49,7 +49,7 @@ const CreateParty = () => {
   }
 
   //Create a new party
-  const CreateParty = async (e) => {
+  const handleCreateParty = async (e) => {
     e.preventDefault();
 
     try {
@@ -81,7 +81,7 @@ const CreateParty = () => {
     <div className="form-page">
       <h2>Crie sua próxima Festa</h2>
       <p>Defina o seu orçamento e escolha os serviços</p>
-      <form onSubmit={(e) => CreateParty(e)}>
+      <form onSubmit={(e) => handleCreateParty(e)}>
         <label>
           <span>Nome da festa: </span>
           <input 
@@ -92,23 +92,14 @@ const CreateParty = () => {
           value={title}
           />
         </label>
-        <label>
-          <span>Anfitrião:</span>
-          <input 
-          type='text' 
-          placeholder='Quem está dando a festa?' 
-          required 
-          onChange={(e) => setAuthor(e.target.value)}
-          value={author}
-          />
-        </label>
+        
         <label>
           <span>Descrição</span>
           <textarea 
           placeholder='Conte mais sobre a festa' 
           required 
           onChange={(e) => setDescription(e.target.value)}
-          valor={description}
+          value={description}
           ></textarea>
         </label>
         <label>
@@ -117,8 +108,8 @@ const CreateParty = () => {
           type='number' 
           placeholder="Quanto você pretende investir" 
           required 
-          onChange={(e) => setBudget(e.target.value)}
-          valor={budget}
+          onChange={(e) => setBudget(Number(e.target.value))}
+          value={budget}
           />
         </label>
         <label>
