@@ -1,17 +1,13 @@
 const router = require("express").Router();
-
-const partyController = require("../controllers/partyController");
 const authMiddleware = require("../middlewares/authMiddlewares");
+const partyController = require("../controllers/partyController");
 
-router.use(authMiddleware);
 
-
-router.route("/parties").post((req, res) => partyController.create(req, res));
-router.route("/parties").get((req, res) => partyController.getAll(req, res));
-router.route("/parties/:id").get((req, res) => partyController.get(req, res));
-router.route("/parties/:id").delete((req, res) => partyController.delete(req, res));
-router.route("/parties/:id").put((req, res) => partyController.update(req, res));
-router.get("/parties/my", partyController.getMyParties);
-
+router.post("/", partyController.create);
+router.get("/", partyController.getAll);
+router.get("/my", partyController.getMyParties);
+router.get("/:id", partyController.get);
+router.put("/:id", partyController.update);
+router.delete("/:id", partyController.delete);
 
 module.exports = router;

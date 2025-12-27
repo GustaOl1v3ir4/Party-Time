@@ -29,6 +29,8 @@ app.use(cors({
 const conn = require("./db/conn");
 conn();
 
+app.use(express.json());
+
 // Routes
 const routes = require("./routes/router");
 app.use("/api", routes);

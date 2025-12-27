@@ -15,6 +15,7 @@ const authController = {
     //Criar novo usuário
     async register(req, res){
         try {
+            console.log("BODY RECEBIDO:", req.body);
             const {name, email, password} = req.body;
 
             if(!name || !email || !password){
@@ -36,7 +37,7 @@ const authController = {
             const salt = await bcrypt.genSalt(12);
             const passwordHash = await bcrypt.hash(password, salt);
 
-
+            
 
             const user = new User({
                 name,
@@ -45,10 +46,11 @@ const authController = {
             });
             await user.save();
 
-
+            const token = generateToken(user._id);
 
             res.status(201).json({
                 message: "Usuário criado com sucesso",
+                token,
                 user: {
                     id: user._id,
                     name: user.name,
