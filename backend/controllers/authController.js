@@ -16,11 +16,17 @@ const authController = {
     async register(req, res){
         try {
             console.log("BODY RECEBIDO:", req.body);
-            const {name, email, password} = req.body;
+            const {name, email, password, confirmPassword} = req.body;
 
-            if(!name || !email || !password){
+            if(!name || !email || !password || !confirmPassword){
                 return res.status(422).json({
                     message: "Todos os campos são obrigatórios"
+                });
+            }
+
+            if(password !== confirmPassword){
+                return res.status(422).json({
+                    message: "As senhas não conferem"
                 });
             }
 

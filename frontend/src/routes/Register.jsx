@@ -10,13 +10,15 @@ const Register = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
-      await register({ name, email, password });
-      navigate("/");
+      await register({ name, email, password, confirmPassword });
+      navigate("/login");
     } catch (error) {
       alert("Erro ao cadastrar usuário");
     }
@@ -28,7 +30,7 @@ const Register = () => {
         <h2>Criar conta</h2>
 
         <form onSubmit={handleSubmit}>
-          <label>Nome</label>
+          <label>Nome: </label>
           <input
             type="text"
             placeholder="Digite seu nome"
@@ -37,7 +39,7 @@ const Register = () => {
             required
           />
 
-          <label>E-mail</label>
+          <label>E-mail: </label>
           <input
             type="email"
             placeholder="Digite seu e-mail"
@@ -46,7 +48,7 @@ const Register = () => {
             required
           />
 
-          <label>Senha</label>
+          <label>Senha: </label>
           <input
             type="password"
             placeholder="Crie uma senha"
@@ -54,6 +56,19 @@ const Register = () => {
             onChange={(e) => setPassword(e.target.value)}
             required
           />
+
+          <label>Confirmar senha: </label>
+          <input
+            type="password"
+            placeholder="Confirme a senha"
+            value={confirmPassword}
+            onChange={(e) => setConfirmPassword(e.target.value)}
+            required
+          />
+
+          {password !== confirmPassword && 
+          (<p style={{color: "red"}}>As senhas não são iguais</p>)}
+          
 
           <button type="submit">Cadastrar</button>
         </form>

@@ -33,7 +33,7 @@ const Navbar = () => {
                         <Link to="/party/new">Criar festa</Link>
                     </li>
                     <li>
-                        <button onClick={logout}>Sair</button>
+                        <button onClick={logout} className="logout-btn">Sair</button>
                     </li>  
                     </>
                 )}
