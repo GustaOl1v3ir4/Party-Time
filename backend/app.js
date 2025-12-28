@@ -32,8 +32,8 @@ conn();
 app.use(express.json());
 
 // Routes
-const routes = require("./routes/router");
-app.use("/api", routes);
+const router = require("./routes/router");
+app.use("/api", router);
 
 app.listen(process.env.PORT, () => {
   console.log(`Servidor rodando na porta ${process.env.PORT}`);
