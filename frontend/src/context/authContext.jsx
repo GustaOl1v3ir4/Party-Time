@@ -20,7 +20,7 @@ export const AuthProvider = ({ children }) => {
 
     const getCurrentUser = async() => {
         try {
-            const res = await partyFetch.get("/auth/");
+            const res = await partyFetch.get("/auth/me");
 
             setUser(res.data);
 

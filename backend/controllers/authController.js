@@ -121,7 +121,25 @@ const authController = {
                 message: "Erro interno do servidor"
             });
         }
-    }
+    },
+
+    async getCorrentUser(req, res){
+        try {
+            const user = req.user;
+
+            res.status(200).json({
+            id: user._id,
+            name: user.name,
+            email: user.email,
+            });
+        } catch (error) {
+        res.status(500).json({
+        message: "Erro ao buscar usuário",
+        });
+        }
+
+    }     
+
 };
 
     
