@@ -132,10 +132,11 @@ const authController = {
             name: user.name,
             email: user.email,
             });
+            
         } catch (error) {
-        res.status(500).json({
-        message: "Erro ao buscar usuário",
-        });
+            res.status(500).json({
+            message: "Erro ao buscar usuário",
+            });
         }
 
     }     
