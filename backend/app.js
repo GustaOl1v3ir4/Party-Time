@@ -10,7 +10,6 @@ app.use(cors({
   origin: (origin, callback) => {
     const allowedOrigins = [
       "http://localhost:5173",
-      "https://party-time-1.onrender.com"
     ];
 
     if (!origin) return callback(null, true);
