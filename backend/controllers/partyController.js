@@ -87,17 +87,15 @@ const partyController = {
             const id = req.params.id;
             const party = await PartyModel.findById(id);
 
-            if(party.user.toString() !== req.user._id.toString()){
-                res.status(401).json({msg: "Acesso negado"})
-            }
-
-
             if(!party){
-                res.status(404).json({msg: "Essa festa não existe"});
-                return;
+                return res.status(404).json({msg: "Essa festa não existe"});
+                
             }
 
-            
+
+            if(party.user.toString() !== req.user._id.toString()){
+                return res.status(401).json({msg: "Acesso negado"})
+            }
 
             const deleteParty = await PartyModel.findByIdAndDelete(id);
 
@@ -112,6 +110,17 @@ const partyController = {
     update: async(req, res) => {
         try {
             const id = req.params.id;
+
+            const existingParty = await PartyModel.findById(id);
+
+            if(!existingParty) {
+                return res.status(404).json({msg: "Essa festa não existe"});
+            }
+
+            if(existingParty.user.toString() !== req.user._id.toString()){
+                return res.status(401).json({msg: "Acesso negado"})
+            }
+
             const party = {
                 title: req.body.title,
                 author: req.body.author,
@@ -127,19 +136,11 @@ const partyController = {
             }
 
 
-            const updateParty = await PartyModel.findByIdAndUpdate(id, party);
-
-            if(party.user.toString() !== req.user._id.toString()){
-                res.status(401).json({msg: "Acesso negado"})
-            }
-
-            if(!updateParty){
-                res.status(404).json({msg: "Essa festa não existe"});
-                return;
-            }        
+            const updateParty = await PartyModel.findByIdAndUpdate(id, party, {new: true});
+      
 
 
-            res.status(200).json({party, msg: "Festa atualizada com sucesso!"});
+            res.status(200).json({updateParty, msg: "Festa atualizada com sucesso!"});
 
 
         } catch (error) {
