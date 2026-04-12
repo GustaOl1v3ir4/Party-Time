@@ -40,6 +40,7 @@ const partyController = {
 
         } catch (error) {
             console.log(error);
+            res.status(500).json({msg: "Erro interno do servidor"});
         }
     },
 
@@ -145,6 +146,7 @@ const partyController = {
 
         } catch (error) {
             console.log(error);
+            res.status(500).json({msg: "Erro interno do servidor"});
         }
     }
 

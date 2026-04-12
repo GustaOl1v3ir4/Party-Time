@@ -8,8 +8,6 @@ import {createBrowserRouter, RouterProvider} from "react-router-dom";
 //Context
 import { AuthProvider } from './context/authContext.jsx';
 
-
-
 //Pages
 import Home from './routes/Home.jsx';
 import CreateParty from './routes/CreateParty.jsx';
@@ -18,9 +16,8 @@ import EditParty from './routes/EditParty.jsx';
 import Login from './routes/Login.jsx';
 import Register from './routes/Register.jsx';
 import PrivateRoute from './routes/PrivateRoute.jsx';
-
-
-
+import AdminRoute from './components/adminRoute.jsx';   // novo
+import AdminDashboard from './routes/admin/Dashboard.jsx'; // novo
 
 
 const router = createBrowserRouter([
@@ -66,6 +63,15 @@ const router = createBrowserRouter([
           <PrivateRoute>
             <EditParty />
           </PrivateRoute>
+        ),
+      },
+      // Admin — novo
+      {
+        path: "/admin",
+        element: (
+          <AdminRoute>
+            <AdminDashboard />
+          </AdminRoute>
         ),
       },
     ],

@@ -7,12 +7,9 @@ const checkRole = require("../middlewares/roleMiddleware");
 router.use(authMiddleware);
 router.use(checkRole("admin"));
 
-router.get("/dashboard", (req, res) => {
-    res.json({
-        message: "Bem vindo ao painel de administração",
-        admin: req.user.name
-    })
-})
+router.get("/dashboard", adminController.getDashMetrics);
+router.get("/parties", adminController.getAllParties);
+router.get("/users", adminController.getAllUsers);
 
 module.exports = router;
 

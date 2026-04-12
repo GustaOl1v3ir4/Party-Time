@@ -60,7 +60,8 @@ const authController = {
                 user: {
                     id: user._id,
                     name: user.name,
-                    email: user.email
+                    email: user.email,
+                    role: user.role,
                 }
             });            
 
@@ -110,7 +111,8 @@ const authController = {
                 user: {
                     id: user._id,
                     name: user.name,
-                    email: user.email
+                    email: user.email,
+                    role: user.role
                 }
             });
 
@@ -123,7 +125,7 @@ const authController = {
         }
     },
 
-    async getCorrentUser(req, res){
+    async getCurrentUser(req, res){
         try {
             const user = req.user;
 
@@ -131,6 +133,7 @@ const authController = {
             id: user._id,
             name: user.name,
             email: user.email,
+            role: user.role,
             });
             
         } catch (error) {

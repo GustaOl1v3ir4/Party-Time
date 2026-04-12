@@ -22,6 +22,6 @@ router.use("/parties", authMiddleware, partyRouter);
 router.use("/services", authMiddleware, servicesRouter);
 
 //rota admin
-router.use("/admin", authMiddleware,adminRouter);
+router.use("/admin",adminRouter);
 
 module.exports = router;
