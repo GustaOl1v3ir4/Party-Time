@@ -16,9 +16,10 @@ import EditParty from './routes/EditParty.jsx';
 import Login from './routes/Login.jsx';
 import Register from './routes/Register.jsx';
 import PrivateRoute from './routes/PrivateRoute.jsx';
-import AdminRoute from './components/adminRoute.jsx';   // novo
-import AdminDashboard from './routes/admin/Dashboard.jsx'; // novo
-
+import AdminRoute from './components/adminRoute.jsx';
+import AdminDashboard from './routes/admin/Dashboard.jsx';
+import AdminUsers from './routes/admin/Users.jsx';
+import AdminParties from './routes/admin/Parties.jsx';
 
 const router = createBrowserRouter([
   {
@@ -36,9 +37,9 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: (
-        <PrivateRoute>
-          <Home />
-        </PrivateRoute>
+          <PrivateRoute>
+            <Home />
+          </PrivateRoute>
         ),   
       },
       {
@@ -65,7 +66,6 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
       },
-      // Admin — novo
       {
         path: "/admin",
         element: (
@@ -74,10 +74,25 @@ const router = createBrowserRouter([
           </AdminRoute>
         ),
       },
+      {
+        path: "/admin/users",
+        element: (
+          <AdminRoute>
+            <AdminUsers />
+          </AdminRoute>
+        ),
+      },
+      {
+        path: "/admin/parties",
+        element: (
+          <AdminRoute>
+            <AdminParties />
+          </AdminRoute>
+        ),
+      },
     ],
   },
 ]);
-
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>

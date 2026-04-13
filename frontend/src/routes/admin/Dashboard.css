@@ -1,0 +1,128 @@
+.admin-dashboard {
+  padding: 2.5rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  font-family: 'DM Sans', sans-serif;
+}
+
+.admin-header {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 0.5px solid #e2e2e2;
+}
+
+.admin-header h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.6rem, 4vw, 2rem);
+  font-weight: 700;
+  margin: 0;
+  color: #1a1a1a;
+}
+
+.admin-badge {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: #534AB7;
+  background: #EEEDFE;
+  border-radius: 999px;
+  padding: 3px 10px;
+}
+
+.admin-status {
+  text-align: center;
+  padding: 4rem 2rem;
+  color: #666;
+  font-family: 'DM Sans', sans-serif;
+}
+
+.admin-metrics {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.metric-card {
+  background: #fff;
+  border: 0.5px solid #e2e2e2;
+  border-radius: 12px;
+  padding: 1.25rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  transition: border-color 0.2s ease;
+}
+
+.metric-card:hover {
+  border-color: #bbb;
+}
+
+.metric-label {
+  font-size: 0.78rem;
+  color: #888;
+  font-weight: 500;
+}
+
+.metric-value {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  font-family: 'Playfair Display', serif;
+}
+
+.admin-sections {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1rem;
+}
+
+.admin-section-card {
+  background: #fff;
+  border: 0.5px solid #e2e2e2;
+  border-radius: 12px;
+  padding: 1.5rem;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.admin-section-card:hover {
+  border-color: #534AB7;
+  transform: translateY(-3px);
+}
+
+.admin-section-card h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin: 0;
+}
+
+.admin-section-card p {
+  font-size: 0.85rem;
+  color: #888;
+  margin: 0;
+}
+
+.admin-link {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: #534AB7;
+  margin-top: 0.5rem;
+}
+
+@media (max-width: 600px) {
+  .admin-dashboard {
+    padding: 1.5rem 1rem;
+  }
+
+  .admin-metrics {
+    grid-template-columns: 1fr 1fr;
+  }
+} 
