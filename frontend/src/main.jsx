@@ -17,6 +17,7 @@ import Login from './routes/Login.jsx';
 import Register from './routes/Register.jsx';
 import PrivateRoute from './routes/PrivateRoute.jsx';
 import AdminRoute from './components/adminRoute.jsx';
+import AdminLayout from './components/AdminLayout.jsx';
 import AdminDashboard from './routes/admin/Dashboard.jsx';
 import AdminUsers from './routes/admin/Users.jsx';
 import AdminParties from './routes/admin/Parties.jsx';
@@ -70,7 +71,9 @@ const router = createBrowserRouter([
         path: "/admin",
         element: (
           <AdminRoute>
-            <AdminDashboard />
+            <AdminLayout>
+              <AdminDashboard />
+            </AdminLayout>
           </AdminRoute>
         ),
       },
@@ -78,7 +81,9 @@ const router = createBrowserRouter([
         path: "/admin/users",
         element: (
           <AdminRoute>
-            <AdminUsers />
+            <AdminLayout>
+              <AdminUsers />
+            </AdminLayout>
           </AdminRoute>
         ),
       },
@@ -86,7 +91,9 @@ const router = createBrowserRouter([
         path: "/admin/parties",
         element: (
           <AdminRoute>
-            <AdminParties />
+            <AdminLayout>
+              <AdminParties />
+            </AdminLayout>
           </AdminRoute>
         ),
       },

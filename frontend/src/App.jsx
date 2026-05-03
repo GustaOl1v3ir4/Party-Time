@@ -1,4 +1,4 @@
-import { Outlet } from 'react-router-dom'
+import { Outlet, useLocation } from 'react-router-dom'
 
 //Componentes
 import Navbar from './components/Navbar'
@@ -10,14 +10,17 @@ import {ToastContainer} from 'react-toastify'
 
 import './App.css'
 import "react-toastify/dist/ReactToastify.css";
+import { use } from 'react';
 
 function App() {
+  const location = useLocation();
+  const isAdmin = location.pathname.startsWith("/admin");
   
 
   return (
     <div className='App'>
       <ToastContainer />
-      <Navbar />
+      {!isAdmin && <Navbar />}
       <Outlet />
     </div>
   )
