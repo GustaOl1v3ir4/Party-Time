@@ -1,15 +1,14 @@
 require("dotenv").config();
 
-const express = require("express")
-const cors = require("cors")
-const app = express()
-
-
+const express = require("express");
+const cors = require("cors");
+const app = express();
 
 app.use(cors({
   origin: (origin, callback) => {
     const allowedOrigins = [
       "http://localhost:5173",
+      "https://party-time-1.onrender.com",
     ];
 
     if (!origin) return callback(null, true);
@@ -22,7 +21,6 @@ app.use(cors({
   },
   credentials: true
 }));
-
 
 // DB Connection
 const conn = require("./db/conn");
@@ -37,4 +35,3 @@ app.use("/api", router);
 app.listen(process.env.PORT, () => {
   console.log(`Servidor rodando na porta ${process.env.PORT}`);
 });
-
