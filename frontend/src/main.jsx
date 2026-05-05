@@ -17,7 +17,7 @@ import Login from './routes/Login.jsx';
 import Register from './routes/Register.jsx';
 import PrivateRoute from './routes/PrivateRoute.jsx';
 import AdminRoute from './components/adminRoute.jsx';
-import AdminLayout from './components/AdminLayout.jsx';
+import AdminLayout from './components/adminLayout.jsx';
 import AdminDashboard from './routes/admin/Dashboard.jsx';
 import AdminUsers from './routes/admin/Users.jsx';
 import AdminParties from './routes/admin/Parties.jsx';
